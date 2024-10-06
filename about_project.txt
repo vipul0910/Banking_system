@@ -1,0 +1,12 @@
+Banking system will have following functions - 
+1. Create account
+2. Delete account
+3. Deposit amount
+4. Withdraw amount
+5. Check balance
+
+user-interface derails ->
+1. Name
+2. Phone number
+3. mail id
+4. amount = 10,000
