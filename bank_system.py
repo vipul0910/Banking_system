@@ -7,24 +7,34 @@ class Account:
         self.name = name
         self.pno = pno
         self.mail = mail
-        self.balance = opening_amount
+        self.__balance = opening_amount
         self.account_no = random.randint(518900000,598700000)
 
-    def delete_account(self):
-        pass
-
     def deposit_money(self,amount):
-        self.balance=self.balance+amount
-        return f'your current balance is : {self.balance}'
+        self.__balance=self.__balance+amount
+        print(f'{amount} got deposited into the account no. {self.account_no}')
+        print('Do you want to check balance: y/n?')
+        ans = input()
+        if ans == 'y':
+            return self.check_balance()
+        else:
+            return 'Thank you!'
+        
 
     def withdraw_money(self,amount):
-        if self.balance-amount > 0:
-            self.balance=self.balance-amount
-            return f'your current balance is : {self.balance}'
+        if self.__balance-amount > 0:
+            self.__balance=self.__balance-amount
+            print(f'{amount} was withdrawn from the account no. {self.account_no}')
+            print('Do you want to check balance: y/n?')
+            ans = input()
+            if ans == 'y':
+                return self.check_balance()
+            else:
+                return 'Thank you!'
         return 'Insufficient balance'
 
     def check_balance(self):
-        return f'your current balance is : {self.balance}'
+        return f'your current balance is : {self.__balance}'
     
     def __str__(self):
         return f"Name: {self.name}\nPhone no.: {self.pno}\nMail ID: {self.mail}\nBalance: {self.balance}"
